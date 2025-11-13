@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const BackgroundMusic = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [hasInteracted, setHasInteracted] = useState(false);
+
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -12,7 +12,7 @@ const BackgroundMusic = () => {
 
     const handlePlay = () => {
       setIsPlaying(true);
-      setHasInteracted(true);
+
     };
 
     const handlePause = () => {
@@ -27,7 +27,7 @@ const BackgroundMusic = () => {
       try {
         await audio.play();
         setIsPlaying(true);
-        setHasInteracted(true);
+
       } catch (error) {
         // Autoplay blocked - user will need to click
         console.log('Autoplay blocked, waiting for user interaction');
@@ -51,7 +51,7 @@ const BackgroundMusic = () => {
     } else {
       try {
         await audio.play();
-        setHasInteracted(true);
+
       } catch (error) {
         console.error('Failed to play audio:', error);
       }
